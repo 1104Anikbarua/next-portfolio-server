@@ -1,7 +1,7 @@
-const createUser = async () => {
+const logIn = async () => {
   return "hellow world";
 };
 
 export const authServices = {
-  createUser,
+  logIn,
 };

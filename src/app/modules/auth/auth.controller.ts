@@ -1,14 +1,19 @@
+import httpStatus from "http-status";
 import { handleAsyncTryCatch } from "../../utlis/asyncTryCatch.utlis";
+import { handleSendResponse } from "../../utlis/sendResponse.utlis";
+import { authServices } from "./auth.service";
 
-const createUser = handleAsyncTryCatch(async (req, res) => {
-  //     git init
-  // git add README.md
-  // git commit -m "first commit"
-  // git branch -M main
-  // git remote add origin https://github.com/1104Anikbarua/next-portfolio-server.git
-  // git push -u origin main
+const logIn = handleAsyncTryCatch(async (req, res) => {
+  const payload = req.body;
+  const result = await authServices.logIn();
+  handleSendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "User logged in successfully",
+    data: result,
+  });
 });
 
 export const authControllers = {
-  createUser,
+  logIn,
 };
