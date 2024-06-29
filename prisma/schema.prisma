@@ -74,6 +74,7 @@ model Project {
 model Blog {
   id        String  @id @default(uuid())
   title     String
+  imageLink String
   userId    String
   isDeleted Boolean @default(false)
   content   String
