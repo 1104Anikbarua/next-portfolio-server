@@ -7,3 +7,5 @@ router.post("/create-blog", blogControllers.createBlog);
 router.patch("/set-blog/:id", blogControllers.setBlog);
 router.delete("/remove-blog/:id", blogControllers.removeBlog);
 router.get("/", blogControllers.getBlogs);
+
+export const blogRoutes = router;
