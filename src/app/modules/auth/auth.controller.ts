@@ -5,7 +5,7 @@ import { authServices } from "./auth.service";
 
 const logIn = handleAsyncTryCatch(async (req, res) => {
   const payload = req.body;
-  const result = await authServices.logIn();
+  const result = await authServices.logIn(payload);
   handleSendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
