@@ -5,6 +5,7 @@ import { skillServices } from "./skill.service";
 
 const createSkill = handleAsyncTryCatch(async (req, res) => {
   const payload = req.body;
+  console.log(payload);
   const result = await skillServices.createSkill(payload);
 
   handleSendResponse(res, {
