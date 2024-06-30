@@ -19,7 +19,7 @@ const getBlogs = handleAsyncTryCatch(async (req, res) => {
   const result = await blogServices.getBlogs();
   handleSendResponse(res, {
     success: true,
-    statusCode: httpStatus.CREATED,
+    statusCode: httpStatus.OK,
     message: "Blogs retrived successfully",
     data: result,
   });
@@ -31,7 +31,7 @@ const setBlog = handleAsyncTryCatch(async (req, res) => {
   const result = await blogServices.setBlog(id, payload);
   handleSendResponse(res, {
     success: true,
-    statusCode: httpStatus.CREATED,
+    statusCode: httpStatus.OK,
     message: "Blog updated successfully",
     data: result,
   });
@@ -41,7 +41,7 @@ const removeBlog = handleAsyncTryCatch(async (req, res) => {
   const result = await blogServices.removeBlog(id);
   handleSendResponse(res, {
     success: true,
-    statusCode: httpStatus.CREATED,
+    statusCode: httpStatus.OK,
     message: "Blog removed successfully",
     data: result,
   });
