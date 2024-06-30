@@ -42,7 +42,7 @@ const removeProject = handleAsyncTryCatch(async (req, res) => {
   handleSendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: "Projectrience removed successfully",
+    message: "Project removed successfully",
     data: result,
   });
 });

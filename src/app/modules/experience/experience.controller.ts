@@ -42,7 +42,7 @@ const removeExperience = handleAsyncTryCatch(async (req, res) => {
   handleSendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: "Experiencerience removed successfully",
+    message: "Experience removed successfully",
     data: result,
   });
 });
