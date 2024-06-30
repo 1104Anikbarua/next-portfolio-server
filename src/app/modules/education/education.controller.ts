@@ -18,7 +18,7 @@ const getEducations = handleAsyncTryCatch(async (req, res) => {
   handleSendResponse(res, {
     success: true,
     statusCode: httpStatus.CREATED,
-    message: "Education retrived successfully",
+    message: "Educations retrived successfully",
     data: result,
   });
 });
