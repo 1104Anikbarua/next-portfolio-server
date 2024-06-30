@@ -5,6 +5,7 @@ import { blogServices } from "./blog.service";
 
 const createBlog = handleAsyncTryCatch(async (req, res) => {
   const payload = req.body;
+  console.log(payload, "HITTTTTTTTT");
   const result = await blogServices.createBlog(payload);
 
   handleSendResponse(res, {
