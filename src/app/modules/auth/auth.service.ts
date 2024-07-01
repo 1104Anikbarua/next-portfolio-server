@@ -6,7 +6,12 @@ import config from "../../config";
 
 const logIn = async (payload: Partial<User>) => {
   const { email, password: currentPassword } = payload;
-  const { password, email: userEmail } = await prisma.user.findUniqueOrThrow({
+  const {
+    password,
+    email: userEmail,
+    id,
+    name,
+  } = await prisma.user.findUniqueOrThrow({
     where: { email },
   });
   if (!userEmail) {
@@ -18,6 +23,8 @@ const logIn = async (payload: Partial<User>) => {
   }
   const jwtPayload = {
     email,
+    id,
+    name,
   };
   const accessToken = getToken(
     jwtPayload,

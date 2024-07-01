@@ -1,7 +1,8 @@
 import { Blog } from "@prisma/client";
 import { prisma } from "../../utlis/prisma.utlis";
 
-const createBlog = async (payload: Blog) => {
+const createBlog = async (id: string, payload: Blog) => {
+  payload.userId = id;
   const result = await prisma.blog.create({
     data: payload,
   });
@@ -10,6 +11,11 @@ const createBlog = async (payload: Blog) => {
 
 const getBlogs = async () => {
   const result = await prisma.blog.findMany({});
+  return result;
+};
+
+const getBlog = async (id: string) => {
+  const result = await prisma.blog.findUnique({ where: { id } });
   return result;
 };
 
@@ -34,4 +40,5 @@ export const blogServices = {
   getBlogs,
   setBlog,
   removeBlog,
+  getBlog,
 };
