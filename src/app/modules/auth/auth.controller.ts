@@ -20,7 +20,18 @@ const logIn = handleAsyncTryCatch(async (req, res) => {
     data: { accessToken, rest },
   });
 });
-
+// get user profile start here
+const getProfile = handleAsyncTryCatch(async (req, res) => {
+  const { id } = req.user;
+  const result = await authServices.getProfile(id);
+  handleSendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "User profile retrieved successfully",
+    data: result,
+  });
+});
 export const authControllers = {
   logIn,
+  getProfile,
 };

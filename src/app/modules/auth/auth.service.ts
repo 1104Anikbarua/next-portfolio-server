@@ -4,6 +4,14 @@ import bcyrpt from "bcrypt";
 import { getToken } from "../../utlis/getToken.utlis";
 import config from "../../config";
 
+export const selectField = {
+  id: true,
+  name: true,
+  email: true,
+  createdAt: true,
+  updatedAt: true,
+  imageUrl: true,
+};
 const logIn = async (payload: Partial<User>) => {
   const { email, password: currentPassword } = payload;
   const {
@@ -42,6 +50,18 @@ const logIn = async (payload: Partial<User>) => {
   };
 };
 
+// get user profile by token id starts here
+const getProfile = async (id: string) => {
+  // check is user is exists or not
+  const result = await prisma.user.findUniqueOrThrow({
+    where: {
+      id,
+    },
+    select: selectField,
+  });
+  return result;
+};
 export const authServices = {
   logIn,
+  getProfile,
 };

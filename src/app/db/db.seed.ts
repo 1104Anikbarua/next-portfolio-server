@@ -5,7 +5,8 @@ import bcrypt from "bcrypt";
 const user = {
   name: "Anik Barua",
   email: "user@gmail.com",
-  password: "123456",
+  password: "asdfgh",
+  imageUrl: "https://ibb.co/JBGtzcQ",
 };
 
 export const createUser = async () => {

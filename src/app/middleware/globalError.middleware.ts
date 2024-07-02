@@ -17,7 +17,6 @@ export const handleGlobalError: ErrorRequestHandler = (
 ) => {
   let statusCode = 500;
   let message = "Opps! something went wrong";
-
   //if token is incorrect then this if block is going to execute
   if (error instanceof JsonWebTokenError) {
     statusCode = httpStatus.UNAUTHORIZED;
