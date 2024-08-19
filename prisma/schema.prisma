@@ -13,6 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// user model 
 model User {
   id        String   @id @unique @default(uuid())
   name      String
@@ -26,6 +27,7 @@ model User {
   @@map("users")
 }
 
+// skill model 
 model Skill {
   id          String   @id @default(uuid())
   expertise   String[]
@@ -38,6 +40,7 @@ model Skill {
   @@map("skills")
 }
 
+// experience model 
 model Experience {
   id          String   @id @default(uuid())
   companyName String
@@ -49,6 +52,7 @@ model Experience {
   @@map("experiences")
 }
 
+// education model 
 model Education {
   id              String   @id @default(uuid())
   examType        String
@@ -61,21 +65,26 @@ model Education {
   @@map("educations")
 }
 
+// project model 
 model Project {
-  id              String   @id @default(uuid())
-  projectName     String
-  projectDuration String?
-  technologyUsed  String[]
-  liveSiteLink    String
-  githubClient    String?
-  githubServer    String?
-  category        String
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id               String   @id @default(uuid())
+  projectName      String
+  projectDuration  String?
+  technologies     String
+  liveSiteLink     String
+  githubClientLink String?
+  githubServerLink String?
+  // category        String
+  featureOne       String?
+  featureTwo       String?
+  featureThree     String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   @@map("projects")
 }
 
+// blog model 
 model Blog {
   id        String   @id @default(uuid())
   title     String
